@@ -1,3 +1,4 @@
+# Separating names with minimal distances
 
 list_names <- list(0)
 
@@ -8,13 +9,7 @@ list_names
 
 name_with_dist<-list(0)
 
-z=NULL
-for(i in 1:length(list_names)){
-  for(j in 1:length(list_names[[i]]))
-    z[i]=1:length(list_names[[i]])
-  }
-z
-
+#Creating names with distances only separately
 
  for(j in 1:length(list_names)) {#7, so we should have 7 list
 
@@ -43,5 +38,29 @@ for(i in 1:length(list_names)){
 }
 
 mawb
+#========================================
+#finding indexes for countries
+#=====================================
+index <- list(0)
 
+for(i in 1:length(list_names)){ # 7 lists
+  for(j in 1:length(list_names[j])){
+    
+    index[i[j]] <-which(ad$AD_name == names(list_names[[i]][j]))
+  }
+}
+
+index
+
+
+indexes <- which(ad$AD_name == list_names[[1]][1] %>% names)
+which(ad$AD_name == list_names[[1]][1] %>% names)[1]
+ which(ad$AD_name == list_names[[1]][2] %>% names)][1]
+ which(ad$AD_name == list_names[[1]][3] %>% names)[2]
+
+indexes
+
+names(list_names[1][1])
+list_names[[1]][1] %>% names
+list_names[[1]] %>% names
 
