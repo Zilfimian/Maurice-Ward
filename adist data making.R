@@ -41,26 +41,33 @@ mawb
 #========================================
 #finding indexes for countries
 #=====================================
+
 index <- list(0)
 
 for(i in 1:length(list_names)){ # 7 lists
   for(j in 1:length(list_names[j])){
     
-    index[i[j]] <-which(ad$AD_name == names(list_names[[i]][j]))
+    index[i[j]] <- which( ad$AD_name == names(list_names[[i]][j])
+                          && mawb$county == ad$adcounty)
   }
 }
 
+which(ad$AD_name == list_names[[1]][2] %>% names)[1]
+which(ad$AD_name == list_names[[1]][3] %>% names)[2]
+
+
+
 index
+indexes <- which(
+  ad$AD_name == list_names[[1]][1] %>% names && 
+  mawb$county == ad$adcounty   )
+z <- list(0)
 
-
-indexes <- which(ad$AD_name == list_names[[1]][1] %>% names)
-which(ad$AD_name == list_names[[1]][1] %>% names)[1]
- which(ad$AD_name == list_names[[1]][2] %>% names)][1]
- which(ad$AD_name == list_names[[1]][3] %>% names)[2]
-
-indexes
-
-names(list_names[1][1])
-list_names[[1]][1] %>% names
-list_names[[1]] %>% names
-
+for(i in 1:length(names(list_names[[1]]))){
+  
+ z[[i]] <-  ad$adcounty[which(ad$AD_name == list_names[[1]][i] %>% names),]
+  
+}
+  
+z
+ 
